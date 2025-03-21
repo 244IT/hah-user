@@ -2,7 +2,9 @@
 <template>
   <div id="main">
     <hah-header />
-    <section></section>
+    <section>
+      <router-view />
+    </section>
   </div>
 </template>
 <script>

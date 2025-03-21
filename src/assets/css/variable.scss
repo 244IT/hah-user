@@ -1,0 +1,31 @@
+// 主题色
+$primary-color: #4d6bfe;
+$primary-hover-color: #3b5bdb;
+
+// 文字颜色
+$text-color-primary: #333;
+$text-color-secondary: #666; 
+$text-color-tertiary: #999;
+
+// 背景色
+$bg-color: #f0f2f5;
+$bg-color-white: #fff;
+
+// 边框颜色
+$border-color: #eee;
+
+// 阴影
+$box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+// 导出变量供JS使用
+:export {
+  primaryColor: $primary-color;
+  primaryHoverColor: $primary-hover-color;
+  textColorPrimary: $text-color-primary;
+  textColorSecondary: $text-color-secondary;
+  textColorTertiary: $text-color-tertiary;
+  bgColor: $bg-color;
+  bgColorWhite: $bg-color-white;
+  borderColor: $border-color;
+  boxShadow: $box-shadow;
+}

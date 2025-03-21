@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4862663 */
+  src: url('//at.alicdn.com/t/c/font_4862663_tk87a0u0n8q.woff2?t=1742527592274') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4862663_tk87a0u0n8q.woff?t=1742527592274') format('woff'),
+       url('//at.alicdn.com/t/c/font_4862663_tk87a0u0n8q.ttf?t=1742527592274') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-right:before {
+  content: "\e7eb";
+}
+
+.icon-share:before {
+  content: "\e7e7";
+}
+
+.icon-comment:before {
+  content: "\e8e8";
+}
+
+.icon-message:before {
+  content: "\e78a";
+}
+
+.icon-like:before {
+  content: "\e7c8";
+}
+
+.icon-heart:before {
+  content: "\e7df";
+}
+
+.icon-star:before {
+  content: "\e7e0";
+}
+
+.icon-heart-fill:before {
+  content: "\e849";
+}
+
+.icon-like-fill:before {
+  content: "\e869";
+}
+
+.icon-star-fill:before {
+  content: "\e86a";
+}
+
+.icon-fish:before {
+  content: "\e61e";
+}
