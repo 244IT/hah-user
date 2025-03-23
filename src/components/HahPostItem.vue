@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="content">
-        {{ post.content }}
+        <div>{{ post.content }}</div>
         <HahPostImages 
           v-if="post.images && post.images.length"
           :images="post.images"

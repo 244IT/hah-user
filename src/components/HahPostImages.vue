@@ -10,20 +10,37 @@
         :key="index"
         :src="img"
         class="content-image"
+        @click="handleImageClick(index)"
       />
     </div>
+    <HahImagePreview 
+      ref="imagePreview"
+      :images="images"
+    />
     <div 
-      class="arrow"
+      class="images-arrow left"
       v-if="showArrow"
-      @click="handleArrowClick"
+      @click="handleArrowClick('left')"
     >
-      <i class="iconfont icon-right"></i>
+      <i class="iconfont icon-arrow-left-bold"></i>
+    </div>
+    <div 
+      class="images-arrow right"
+      v-if="showArrow"
+      @click="handleArrowClick('right')"
+    >
+      <i class="iconfont icon-arrow-right-bold"></i>
     </div>
   </div>
 </template>
 
 <script>
+import HahImagePreview from './HahImagePreview.vue'
+
 export default {
+  components: {
+    HahImagePreview
+  },
   props: {
     images: {
       type: Array,
@@ -34,43 +51,58 @@ export default {
       required: true
     }
   },
+  methods: {
+    handleImageClick(index) {
+      this.$refs.imagePreview.open(index)
+    },
+    handleArrowClick(direction) {
+      const container = this.$refs.imageContainer;
+      const scrollAmount = 128; // 每次滚动一张图片的宽度
+      const newScrollLeft = direction === 'right' 
+        ? container.scrollLeft + scrollAmount
+        : container.scrollLeft - scrollAmount;
+        
+      // 限制滚动范围
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const finalScroll = Math.max(0, Math.min(newScrollLeft, maxScroll));
+      
+      container.scrollTo({
+        left: finalScroll,
+        behavior: 'smooth'
+      });
+    }
+  },
   computed: {
     containerWidth() {
       const count = Math.min(this.images.length, 3);
-      return `${count * 128}px`;
+      return `calc(${count * 120}px + 16px)`;
     },
     showArrow() {
       return this.images.length > 3;
-    }
-  },
-  methods: {
-    handleArrowClick() {
-      const container = this.$refs.imageContainer;
-      const scrollAmount = 128; // 每次滚动一张图片的宽度
-      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.images {
-  display: grid;
-  gap: 8px;
-  margin-top: 12px;
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  
-  .image-container {
-    display: flex;
-    justify-content: center;
-    transition: transform 0.3s ease;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-  }
+  .images {
+    position: relative;
+    width: auto;
+    margin-top: 12px;
+    display: inline-flex;
+    .image-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none; /* Firefox */
+      padding: 0; /* 为箭头留出空间 */
+      scroll-padding: 0 32px;
+      &::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+      }
+    }
 
-  img {
+  .content-image {
     width: 120px;
     height: 120px;
     object-fit: cover;
@@ -80,13 +112,12 @@ export default {
     flex-shrink: 0;
     margin-right: 8px;
     scroll-snap-align: start;
-    
     &:hover {
       transform: scale(1.05);
     }
   }
 
-  .arrow {
+  .images-arrow {
     width: 24px;
     height: 24px;
     background: rgba($text-color-primary, 0.5);
@@ -97,12 +128,23 @@ export default {
     align-items: center;
     justify-content: center;
     position: absolute;
-    right: 0;
     top: 50%;
+    padding: 0;
     transform: translateY(-50%);
+    transition: background 0.2s ease;
+    z-index: 1;
+    
+    &.left {
+      left: 0;
+    }
+    
+    &.right {
+      right: 0;
+    }
     
     &:hover {
-      background: rgba($text-color-primary, 0.7);
+      background: rgba($text-color-primary, 0.8);
+      transform: translateY(-50%) scale(1.1);
     }
   }
 }

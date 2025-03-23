@@ -12,7 +12,7 @@
         <div class="book-item-right">
           <div class="header">
             <div>{{ item.title }}</div>
-            <a-button>查看详情</a-button>
+            <a-button @click="click(item.id)">查看详情</a-button>
           </div>
           <div class="intro">
             {{ item.intro }}
@@ -32,6 +32,11 @@
     },
     data() {
       return  {
+      }
+    },
+    methods: {
+      click(id) {
+        this.$emit('click', id)
       }
     }
   }

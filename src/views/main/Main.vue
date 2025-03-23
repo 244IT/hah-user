@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div id="main">
     <hah-header />
@@ -10,13 +9,8 @@
 <script>
 import HahHeader from '@/components/HahHeader.vue'
 export default {
-    components: {
-        HahHeader
-    }
+  components: {
+    HahHeader
+  }
 }
 </script>
-<style scoped lang="scss">
-#main {
-    
-}
-</style>

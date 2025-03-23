@@ -1,5 +1,5 @@
 <template>
-    <header id="header">
+    <header id="header" :class="{ 'header-hidden': !visible }">
         <div id="title">HAH</div>
         <nav class="nav">
             <div 
@@ -36,8 +36,16 @@
                         name: 'user'
                     },
                 ],
-                activedIndex: 0
+                activedIndex: 0,
+                visible: true,
+                lastScrollPosition: 0
             }
+        },
+        mounted() {
+            window.addEventListener('scroll', this.onScroll)
+        },
+        beforeDestroy() {
+            window.removeEventListener('scroll', this.onScroll)
         },
         methods: {
             onNav(index) {
@@ -46,6 +54,16 @@
                 this.$router.replace({
                     name: this.navs[index].name
                 })
+            },
+            onScroll() {
+                const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+                if (currentScrollPosition < 0) return
+                
+                // 向下滚动隐藏
+                if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) return
+                
+                this.visible = currentScrollPosition < this.lastScrollPosition
+                this.lastScrollPosition = currentScrollPosition
             }
         }
     }
@@ -53,11 +71,22 @@
 
 <style lang="scss" scoped>
 #header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     padding:  0 60px;
     border-bottom: 1px solid rgba($text-color-primary, 0.12);
     box-shadow: 0 1px 3px $border-color;
+    background: white;
+    transition: transform 0.3s ease;
+    
+    &.header-hidden {
+        transform: translateY(-100%);
+    }
     #title {
         line-height: 60px;
         font-size: 22px;

@@ -9,8 +9,3 @@ export default {
   name: 'App',
 }
 </script>
-<style scoped>
-#app {
-  overflow: hidden;
-}
-</style>

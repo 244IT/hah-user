@@ -28,7 +28,7 @@ export default {
       ],
       posts: [
         {
-          id: 1,
+          id: 0,
           avatar: require('@/assets/img/mock/girl01.jpeg'),
           username: '用户1',
           time: '1小时前',
@@ -36,62 +36,36 @@ export default {
           images: [
             require('@/assets/img/mock/girl.jpeg'),
             require('@/assets/img/mock/girl.jpeg'),
+          ],
+          likeCount: 12,
+          commentCount: 3,
+          tags: ['前端', 'Vue']
+        },
+        ...Array.from({ length: 10 }).map((item, index) => ({
+          id: index + 1,
+          avatar: require('@/assets/img/mock/girl01.jpeg'),
+          username: '用户1',
+          time: '1小时前',
+          content: '这是一个带图片的帖子',
+          images: [
+            require('@/assets/img/mock/girl.jpeg'),
+            require('@/assets/img/mock/girl01.jpeg'),
             require('@/assets/img/mock/girl.jpeg'),
             require('@/assets/img/mock/girl.jpeg'),
           ],
           likeCount: 12,
           commentCount: 3,
           tags: ['前端', 'Vue']
-        },
-        {
-          id: 2,
-          avatar: require('@/assets/img/mock/girl01.jpeg'),
-          username: '用户2',
-          time: '2小时前',
-          content: '这是另一个带图片的帖子',
-          images: [
-            require('@/assets/img/mock/girl.jpeg')
-          ],
-          likeCount: 8,
-          commentCount: 1,
-          tags: ['后端', 'Node.js']
-        },
-        {
-          id: 2,
-          avatar: 'https://example.com/avatar2.jpg',
-          username: '用户2',
-          time: '2小时前',
-          content: '这是另一个带图片的帖子',
-          images: [
-            'https://example.com/image3.jpg'
-          ],
-          likeCount: 8,
-          commentCount: 1,
-          tags: ['后端', 'Node.js']
-        },
-        {
-          id: 2,
-          avatar: 'https://example.com/avatar2.jpg',
-          username: '用户2',
-          time: '2小时前',
-          content: '这是另一个带图片的帖子',
-          images: [
-            'https://example.com/image3.jpg'
-          ],
-          likeCount: 8,
-          commentCount: 1,
-          tags: ['后端', 'Node.js']
-        }
+        }))
       ]
     }
   }
 }
 </script>
-
 <style lang="scss" scoped>
 .user {
   max-width: 860px;
-  padding: 6px 10px;
+  padding: 66px 10px 0;
   margin: 0 auto;
   &-tab {
     margin-bottom: 6px;

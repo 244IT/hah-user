@@ -4,7 +4,7 @@
       <hah-book-label :labels="labels" @label="onLabel" />
     </div>
     <div class="center">
-      <hah-book-item :books="books" />
+      <hah-book-item :books="books" @click="onClick"/>
     </div>
     <div class="right">
       <hah-user />
@@ -86,6 +86,12 @@ export default {
   methods: {
     onLabel(id) {
       console.log(id)
+    },
+    onClick(id) {
+      this.$router.push({
+        name: 'studyDetail',
+        params: { id }
+      })
     }
   }
 }
@@ -95,33 +101,40 @@ export default {
   display: flex;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 0 10px;
-  height: calc(100vh - 60px);
+  padding: 60px 10px 0;
   box-sizing: border-box;
   .left, .right {
     width: 260px;
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
   .left {
-    display: flex;
-    flex-direction: column;
     padding-top: 20px;
     box-sizing: border-box;
   }
+  
   .center {
-    width: 56%;
+    flex: 1;
     padding: 0 20px;
     box-sizing: border-box;
-    border-left: 1px solid #eee;
-    border-right: 1px solid #eee;
-    box-shadow: 0 1px 3px #EEE;
+    border-left: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+    box-shadow: 0 1px 3px $border-color;
     overflow: auto;
-    /* 隐藏滚动条 */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE 10+ */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     &::-webkit-scrollbar {
-      display: none; /* Chrome Safari */
+      display: none;
     }
   }
+  
   .right {
     padding: 6px 0 0 6px;
     box-sizing: border-box;

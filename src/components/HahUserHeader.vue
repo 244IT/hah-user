@@ -41,8 +41,23 @@
 
   .bg {
     height: 160px;
-    background: $bg-color;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
     border-radius: 8px 8px 0 0;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url(@/assets/img/mock/girl.jpeg) center/cover;
+      filter: blur(10px);
+      z-index: -1;
+    }
   }
 
   .info {

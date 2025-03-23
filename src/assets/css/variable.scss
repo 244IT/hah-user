@@ -13,6 +13,7 @@ $bg-color-white: #fff;
 
 // 边框颜色
 $border-color: #eee;
+$border-radius: 4px;
 
 // 阴影
 $box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -27,5 +28,6 @@ $box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   bgColor: $bg-color;
   bgColorWhite: $bg-color-white;
   borderColor: $border-color;
+  borderRadius: $border-radius;
   boxShadow: $box-shadow;
 }
