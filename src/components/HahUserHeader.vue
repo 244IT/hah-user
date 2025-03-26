@@ -3,7 +3,7 @@
     <div class="bg"></div>
     <div class="info">
       <div class="avatar-container">
-        <img src="@/assets/img/mock/girl.jpeg" class="avatar" />
+        <img src="~/assets/img/mock/girl.jpeg" class="avatar" />
         <div class="edit-btn">编辑资料</div>
       </div>
       <div class="meta">
@@ -29,9 +29,7 @@
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {};
 </script>
 
 <style lang="scss" scoped>
@@ -46,15 +44,15 @@
     border-radius: 8px 8px 0 0;
     position: relative;
     overflow: hidden;
-    
+
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: url(@/assets/img/mock/girl.jpeg) center/cover;
+      background: url("~assets/img/mock/girl.jpeg") center/cover;
       filter: blur(10px);
       z-index: -1;
     }
@@ -63,9 +61,9 @@
   .info {
     position: relative;
     padding: 6px;
-    background: $bg-color-white;
+    background: #fff;
     border-radius: 0 0 8px 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
     .avatar-container {
       position: absolute;
@@ -76,7 +74,7 @@
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        border: 2px solid $bg-color-white;
+        border: 2px solid #fff;
         object-fit: cover;
       }
 
@@ -85,8 +83,8 @@
         right: 0;
         bottom: 0;
         padding: 4px 8px;
-        background: $primary-color;
-        color: $bg-color-white;
+        background: #4d6bfe;
+        color: #fff;
         border-radius: 12px;
         font-size: 12px;
         cursor: pointer;
@@ -99,13 +97,13 @@
       .name {
         font-size: 20px;
         font-weight: 500;
-        color: $text-color-primary;
+        color: #333;
       }
 
       .bio {
         margin-top: 8px;
         font-size: 14px;
-        color: $text-color-secondary;
+        color: #666;
       }
 
       .stats {
@@ -119,13 +117,13 @@
           .number {
             font-size: 16px;
             font-weight: 500;
-        color: $text-color-primary;
+            color: #333;
           }
 
           .label {
             margin-top: 4px;
             font-size: 12px;
-            color: $text-color-secondary;
+            color: #666;
           }
         }
       }

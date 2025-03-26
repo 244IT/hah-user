@@ -3,7 +3,7 @@
     <div class="login-wrapper">
       <!-- 左侧图片区域 -->
       <div class="login-banner">
-        <img src="@/assets/img/login_bg.jpg" alt="login background">
+        <img src="@/assets/img/login_bg.jpg" alt="login background" />
         <div class="banner-text">
           <h2>欢迎来到HAH社区</h2>
           <p>分享你的知识，发现更多精彩</p>
@@ -15,14 +15,14 @@
         <div class="form-header">
           <h3>登录</h3>
           <div class="switch-tabs">
-            <span 
-              :class="['tab-item', {active: activeTab === 'phone'}]"
+            <span
+              :class="['tab-item', { active: activeTab === 'phone' }]"
               @click="activeTab = 'phone'"
             >
               手机登录
             </span>
-            <span 
-              :class="['tab-item', {active: activeTab === 'code'}]"
+            <span
+              :class="['tab-item', { active: activeTab === 'code' }]"
               @click="activeTab = 'code'"
             >
               验证码登录
@@ -33,50 +33,34 @@
         <!-- 手机号登录 -->
         <div class="form-content" v-if="activeTab === 'phone'">
           <div class="form-item">
-            <input 
-              type="text" 
-              placeholder="请输入手机号"
-              v-model="phone"
-            >
+            <input type="text" placeholder="请输入手机号" v-model="phone" />
           </div>
           <div class="form-item">
-            <input 
-              type="password" 
+            <input
+              type="password"
               placeholder="请输入密码"
               v-model="password"
-            >
+            />
           </div>
-          <button class="login-btn" @click="handleLogin">
-            登录
-          </button>
+          <button class="login-btn" @click="handleLogin">登录</button>
         </div>
 
         <!-- 验证码登录 -->
         <div class="form-content" v-if="activeTab === 'code'">
           <div class="form-item">
-            <input 
-              type="text" 
-              placeholder="请输入手机号"
-              v-model="phone"
-            >
+            <input type="text" placeholder="请输入手机号" v-model="phone" />
           </div>
           <div class="form-item code-item">
-            <input 
-              type="text" 
-              placeholder="请输入验证码"
-              v-model="code"
-            >
-            <button 
+            <input type="text" placeholder="请输入验证码" v-model="code" />
+            <button
               class="get-code-btn"
               :disabled="countdown > 0"
               @click="getCode"
             >
-              {{ countdown > 0 ? `${countdown}s后重试` : '获取验证码' }}
+              {{ countdown > 0 ? `${countdown}s后重试` : "获取验证码" }}
             </button>
           </div>
-          <button class="login-btn" @click="handleCodeLogin">
-            登录
-          </button>
+          <button class="login-btn" @click="handleCodeLogin">登录</button>
         </div>
 
         <!-- 第三方登录 -->
@@ -99,12 +83,12 @@
 export default {
   data() {
     return {
-      activeTab: 'phone', // phone | code
-      phone: '',
-      password: '',
-      code: '',
-      countdown: 0
-    }
+      activeTab: "phone", // phone | code
+      phone: "",
+      password: "",
+      code: "",
+      countdown: 0,
+    };
   },
   methods: {
     handleLogin() {
@@ -115,16 +99,16 @@ export default {
     },
     getCode() {
       // 获取验证码逻辑
-      this.countdown = 60
+      this.countdown = 60;
       const timer = setInterval(() => {
-        this.countdown--
+        this.countdown--;
         if (this.countdown <= 0) {
-          clearInterval(timer)
+          clearInterval(timer);
         }
-      }, 1000)
-    }
-  }
-}
+      }, 1000);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -283,7 +267,7 @@ export default {
 
         &::before,
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           top: 50%;
           width: 30%;

@@ -8,7 +8,7 @@
         <div class="inner-right">
           <h1>
             FIS<b>H</b> <b>A</b>ND ENGLIS<b>H</b>
-            <br/>
+            <br />
             摸鱼英语学习网
           </h1>
         </div>
@@ -22,16 +22,13 @@
         </div>
         <div class="point">
           <h2>英语</h2>
-          <p>
-            提供四六级，考研，新概念等英语学习资料，请加油
-          </p>
+          <p>提供四六级，考研，新概念等英语学习资料，请加油</p>
         </div>
       </div>
     </div>
   </div>
 </template>
 <style lang="scss" scoped>
-@import "../../assets/css/variable.scss";
 .home {
   .inner {
     padding: 40px 40px 30px;
@@ -45,7 +42,7 @@
       width: 42%;
       .icon-fish {
         font-size: 180px;
-        color: $primary-color;
+        color: #4d6bfe;
       }
     }
     &-right {
@@ -58,7 +55,7 @@
         margin: 0;
         font-size: 30px;
         b {
-          color: $primary-color;
+          color: #4d6bfe;
         }
       }
     }
@@ -69,7 +66,7 @@
       text-align: center;
       h2 {
         font-size: 24px;
-        color: $primary-color;
+        color: #4d6bfe;
       }
       p {
         font-size: 18px;

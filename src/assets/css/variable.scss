@@ -4,7 +4,7 @@ $primary-hover-color: #3b5bdb;
 
 // 文字颜色
 $text-color-primary: #333;
-$text-color-secondary: #666; 
+$text-color-secondary: #666;
 $text-color-tertiary: #999;
 
 // 背景色
@@ -16,18 +16,4 @@ $border-color: #eee;
 $border-radius: 4px;
 
 // 阴影
-$box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-
-// 导出变量供JS使用
-:export {
-  primaryColor: $primary-color;
-  primaryHoverColor: $primary-hover-color;
-  textColorPrimary: $text-color-primary;
-  textColorSecondary: $text-color-secondary;
-  textColorTertiary: $text-color-tertiary;
-  bgColor: $bg-color;
-  bgColorWhite: $bg-color-white;
-  borderColor: $border-color;
-  borderRadius: $border-radius;
-  boxShadow: $box-shadow;
-}
+$box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

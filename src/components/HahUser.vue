@@ -9,9 +9,7 @@
   </div>
 </template>
 <script>
-export default {
-  
-}
+export default {};
 </script>
 <style lang="scss" scoped>
 .hah-user {
@@ -19,9 +17,9 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  border: 1px solid $border-color;
+  border: 1px solid #eee;
   border-radius: 4px;
-  box-shadow: 0 1px 3px $border-color;
+  box-shadow: 0 1px 3px #eee;
   &-tip {
     margin: 20px 0;
   }

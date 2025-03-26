@@ -22,42 +22,43 @@ export default {
   props: {
     images: {
       type: Array,
-      required: true
+      required: true,
     },
     initialIndex: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   data() {
     return {
       visible: false,
-      currentIndex: this.initialIndex
-    }
+      currentIndex: this.initialIndex,
+    };
   },
   computed: {
     currentImage() {
-      return this.images[this.currentIndex]
-    }
+      return this.images[this.currentIndex];
+    },
   },
   methods: {
     open(index) {
-      this.currentIndex = index
-      this.visible = true
-      document.body.style.overflow = 'hidden'
+      this.currentIndex = index;
+      this.visible = true;
+      document.body.style.overflow = "hidden";
     },
     close() {
-      this.visible = false
-      document.body.style.overflow = ''
+      this.visible = false;
+      document.body.style.overflow = "";
     },
     prev() {
-      this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length
+      this.currentIndex =
+        (this.currentIndex - 1 + this.images.length) % this.images.length;
     },
     next() {
-      this.currentIndex = (this.currentIndex + 1) % this.images.length
-    }
-  }
-}
+      this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

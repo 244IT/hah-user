@@ -1,11 +1,11 @@
 <template>
   <div class="images">
-    <div 
-      class="image-container" 
+    <div
+      class="image-container"
       :style="{ width: containerWidth }"
       ref="imageContainer"
     >
-      <img 
+      <img
         v-for="(img, index) in images"
         :key="index"
         :src="img"
@@ -13,18 +13,15 @@
         @click="handleImageClick(index)"
       />
     </div>
-    <HahImagePreview 
-      ref="imagePreview"
-      :images="images"
-    />
-    <div 
+    <HahImagePreview ref="imagePreview" :images="images" />
+    <div
       class="images-arrow left"
       v-if="showArrow"
       @click="handleArrowClick('left')"
     >
       <i class="iconfont icon-arrow-left-bold"></i>
     </div>
-    <div 
+    <div
       class="images-arrow right"
       v-if="showArrow"
       @click="handleArrowClick('right')"
@@ -35,42 +32,43 @@
 </template>
 
 <script>
-import HahImagePreview from './HahImagePreview.vue'
+import HahImagePreview from "./HahImagePreview.vue";
 
 export default {
   components: {
-    HahImagePreview
+    HahImagePreview,
   },
   props: {
     images: {
       type: Array,
-      required: true
+      required: true,
     },
     postId: {
       type: [String, Number],
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     handleImageClick(index) {
-      this.$refs.imagePreview.open(index)
+      this.$refs.imagePreview.open(index);
     },
     handleArrowClick(direction) {
       const container = this.$refs.imageContainer;
       const scrollAmount = 128; // 每次滚动一张图片的宽度
-      const newScrollLeft = direction === 'right' 
-        ? container.scrollLeft + scrollAmount
-        : container.scrollLeft - scrollAmount;
-        
+      const newScrollLeft =
+        direction === "right"
+          ? container.scrollLeft + scrollAmount
+          : container.scrollLeft - scrollAmount;
+
       // 限制滚动范围
       const maxScroll = container.scrollWidth - container.clientWidth;
       const finalScroll = Math.max(0, Math.min(newScrollLeft, maxScroll));
-      
+
       container.scrollTo({
         left: finalScroll,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
-    }
+    },
   },
   computed: {
     containerWidth() {
@@ -79,28 +77,28 @@ export default {
     },
     showArrow() {
       return this.images.length > 3;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .images {
-    position: relative;
-    width: auto;
-    margin-top: 12px;
-    display: inline-flex;
-    .image-container {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none; /* Firefox */
-      padding: 0; /* 为箭头留出空间 */
-      scroll-padding: 0 32px;
-      &::-webkit-scrollbar {
-        display: none; /* Chrome/Safari */
-      }
+.images {
+  position: relative;
+  width: auto;
+  margin-top: 12px;
+  display: inline-flex;
+  .image-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    padding: 0; /* 为箭头留出空间 */
+    scroll-padding: 0 32px;
+    &::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
     }
+  }
 
   .content-image {
     width: 120px;
@@ -120,10 +118,10 @@ export default {
   .images-arrow {
     width: 24px;
     height: 24px;
-    background: rgba($text-color-primary, 0.5);
+    background: rgba(#333, 0.5);
     border-radius: 50%;
     cursor: pointer;
-    color: $bg-color-white;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,17 +131,17 @@ export default {
     transform: translateY(-50%);
     transition: background 0.2s ease;
     z-index: 1;
-    
+
     &.left {
       left: 0;
     }
-    
+
     &.right {
       right: 0;
     }
-    
+
     &:hover {
-      background: rgba($text-color-primary, 0.8);
+      background: rgba(#333, 0.8);
       transform: translateY(-50%) scale(1.1);
     }
   }

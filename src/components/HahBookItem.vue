@@ -1,11 +1,7 @@
 <template>
   <div class="book">
     <div class="book-list">
-      <div 
-        class="book-item"
-        v-for="(item) in books"
-        :key="item.id"
-      >
+      <div class="book-item" v-for="item in books" :key="item.id">
         <div class="book-item-left">
           <img class="book-item-img" :src="item.img" />
         </div>
@@ -23,23 +19,22 @@
   </div>
 </template>
 <script>
-  export default {
-    props: {
-      books: {
-        type: Array,
-        default: () => []
-      }
+export default {
+  props: {
+    books: {
+      type: Array,
+      default: () => [],
     },
-    data() {
-      return  {
-      }
+  },
+  data() {
+    return {};
+  },
+  methods: {
+    click(id) {
+      this.$emit("click", id);
     },
-    methods: {
-      click(id) {
-        this.$emit('click', id)
-      }
-    }
-  }
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -56,7 +51,8 @@
     width: 76px;
     color: #5d646e;
     font-size: 26px;
-    font-family: DIN-Medium, PingFang SC, -apple-system, SF UI Text, Lucida Grande, STheiti, Microsoft YaHei, sans-serif;
+    font-family: DIN-Medium, PingFang SC, -apple-system, SF UI Text,
+      Lucida Grande, STheiti, Microsoft YaHei, sans-serif;
     text-align: center;
   }
   &-img {
@@ -71,11 +67,11 @@
       justify-content: space-between;
       position: relative;
       margin-bottom: 0;
-      color: #3C4752;
+      color: #3c4752;
       font-size: 16px;
     }
     .intro {
-      color: #9EA3A8;
+      color: #9ea3a8;
       font-size: 12px;
       line-height: 20px;
       padding-right: 6px;

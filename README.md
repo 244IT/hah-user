@@ -1,4 +1,4 @@
-# hah-user
+# vue2-demo
 
 ## Project setup
 ```

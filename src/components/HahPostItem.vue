@@ -10,7 +10,7 @@
       </div>
       <div class="content">
         <div>{{ post.content }}</div>
-        <HahPostImages 
+        <HahPostImages
           v-if="post.images && post.images.length"
           :images="post.images"
           :post-id="post.id"
@@ -36,29 +36,29 @@
   </div>
 </template>
 <script>
-import HahPostImages from './HahPostImages.vue';
+import HahPostImages from "./HahPostImages.vue";
 
 export default {
   components: {
-    HahPostImages
+    HahPostImages,
   },
   props: {
     posts: {
       type: Array,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
-  methods: {}
-}
+  methods: {},
+};
 </script>
 <style lang="scss" scoped>
 .post {
   &-item {
     padding: 16px;
     margin-bottom: 6px;
-    background: $bg-color-white;
+    background: #fff;
     border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     .user-info {
       display: flex;
       align-items: center;
@@ -73,36 +73,36 @@ export default {
         .username {
           font-size: 14px;
           font-weight: 500;
-          color: $text-color-primary;
+          color: #333;
         }
         .time {
           font-size: 12px;
-          color: $text-color-tertiary;
+          color: #999;
         }
       }
     }
     .content {
       font-size: 14px;
       line-height: 1.6;
-      color: $text-color-primary;
+      color: #333;
       margin-bottom: 12px;
     }
     .actions {
       display: flex;
       align-items: center;
       padding-top: 12px;
-      border-top: 1px solid $border-color;
+      border-top: 1px solid #eee;
       .action-item {
         display: flex;
         align-items: center;
         margin-right: 20px;
-        color: $text-color-secondary;
+        color: #666;
         cursor: pointer;
         i {
           margin-right: 4px;
         }
         &:hover {
-          color: $primary-color;
+          color: #4d6bfe;
         }
       }
     }
@@ -113,8 +113,8 @@ export default {
         padding: 2px 8px;
         margin-right: 8px;
         font-size: 12px;
-        color: $primary-color;
-        background: rgba($primary-color, 0.1);
+        color: #4d6bfe;
+        background: rgba(#4d6bfe, 0.1);
         border-radius: 12px;
       }
     }

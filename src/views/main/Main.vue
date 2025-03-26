@@ -7,10 +7,10 @@
   </div>
 </template>
 <script>
-import HahHeader from '@/components/HahHeader.vue'
+import HahHeader from "@/components/HahHeader.vue";
 export default {
   components: {
-    HahHeader
-  }
-}
+    HahHeader,
+  },
+};
 </script>

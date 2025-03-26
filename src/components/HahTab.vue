@@ -1,6 +1,6 @@
 <template>
   <div class="tab">
-    <div 
+    <div
       class="tab-item"
       :class="{ actived: activedTabId === item.id }"
       v-for="item in tabs"
@@ -16,41 +16,41 @@ export default {
   props: {
     tabs: {
       type: Array,
-      required: true
+      required: true,
     },
   },
   data() {
     return {
-      activedTabId: this.tabs[0].id
-    }
+      activedTabId: this.tabs[0].id,
+    };
   },
   methods: {
     onTab(id) {
-      this.activedTabId = id
-      this.$emit('tab', id)
-    }
-  }
-}
+      this.activedTabId = id;
+      this.$emit("tab", id);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .tab {
   display: flex;
   padding: 0 10px;
-  border: 1px solid $border-color;
+  border: 1px solid #eee;
   border-radius: 4px;
-  box-shadow: 0 1px 3px $border-color;
+  box-shadow: 0 1px 3px #eee;
   &-item {
     padding: 0 20px;
     line-height: 40px;
     cursor: pointer;
-    
+
     &.actived {
       position: relative;
-      color: $primary-color;
-      
+      color: #4d6bfe;
+
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: 4px;
         left: 0;
@@ -58,7 +58,7 @@ export default {
         height: 2px;
         width: 8px;
         margin: 0 auto;
-        background-color: $primary-color;
+        background-color: #4d6bfe;
         border-radius: 1px;
       }
     }

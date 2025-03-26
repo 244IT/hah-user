@@ -18,18 +18,18 @@ export default {
   props: {
     anchors: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     scrollTo(id) {
       const element = document.getElementById(id);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
